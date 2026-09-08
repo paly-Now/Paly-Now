@@ -1,16 +1,28 @@
-## Hi there 👋
+# Play Now — Final Web Platform
 
-<!--
-**paly-Now/Paly-Now** is a ✨ _special_ ✨ repository because its `README.md` (this file) appears on your GitHub profile.
+نسخة نهائية Responsive لمنصة Play Now، مصممة للعمل على الهاتف والتابلت والكمبيوتر والشاشات الكبيرة/Smart TV عبر المتصفح.
 
-Here are some ideas to get you started:
+## الأقسام
+- أفلام
+- مسلسلات (قابلة للتوسع إلى مواسم وحلقات)
+- برامج
+- كرتون
+- Live / IPTV — لا يظهر للمستخدم إلا بعد تفعيله من لوحة الإدارة
 
-- 🔭 I’m currently working on ...
-- 🌱 I’m currently learning ...
-- 👯 I’m looking to collaborate on ...
-- 🤔 I’m looking for help with ...
-- 💬 Ask me about ...
-- 📫 How to reach me: ...
-- 😄 Pronouns: ...
-- ⚡ Fun fact: ...
--->
+## الإدارة
+لوحة الإدارة تتحكم في المحتوى والأقسام والبانر وإعدادات Live/IPTV والإعدادات العامة.
+
+## Live / IPTV
+يدعم إعداد مصدر IPTV تملكه أنت بصيغ M3U/M3U8 أو Xtream أو Portal، مع استيراد M3U وإدارة القنوات. لا يحتوي المشروع على بيانات دخول أو مصدر بث جاهز.
+
+## النشر المجاني
+أسهل خيار: GitHub Pages، ويعطيك نطاقًا مجانيًا من نوع `اسمك.github.io`.
+بدائل: Cloudflare Pages أو Netlify.
+
+> لا يمكن إنشاء/ربط الدومين المجاني أو حساب الاستضافة من داخل هذا الملف بدون وصول لحسابك، لكن المشروع جاهز للرفع.
+
+## تشغيل محلي
+يمكن فتح `index.html` للعرض، ولتجربة PWA وميزات الاستضافة شغّل خادم Static بسيط.
+
+## Cloud
+يوجد أساس Supabase في `src/cloud.js` و`src/cloud-config.js` و`supabase_schema.sql`، ويمكن تفعيل الربط السحابي بإضافة إعدادات مشروعك.

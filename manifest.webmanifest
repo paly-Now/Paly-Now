@@ -1,0 +1,13 @@
+{
+  "name":"Play Now - منصة الترفيه",
+  "short_name":"Play Now",
+  "description":"منصة Play Now للأفلام والمسلسلات والبرامج والكرتون والبث المباشر",
+  "start_url":"./",
+  "display":"standalone",
+  "orientation":"any",
+  "background_color":"#070711",
+  "theme_color":"#7447ff",
+  "lang":"ar",
+  "dir":"rtl",
+  "icons":[{"src":"icon.svg","sizes":"any","type":"image/svg+xml","purpose":"any maskable"}]
+}
