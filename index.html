@@ -18,6 +18,7 @@
 <body>
 <div id="app"></div>
 <script src="./src/cloud-config.js"></script><script src="./src/cloud.js"></script><script>
+window.PNCloud = window.PNCloud || { enabled:false, async init(){return false}, async loadItems(){return null}, async upsert(){return null}, async remove(){return null}, async feature(){return null}, async login(){return null}, async logout(){return null} };
 const LOGO='./src/assets/play-now-logo.png';
 const types={movies:'أفلام',series:'مسلسلات',programs:'برامج',cartoon:'كرتون'};
 const LIVE_KEY='pn_live_config';
@@ -69,7 +70,7 @@ function exportData(){let blob=new Blob([JSON.stringify(state.items,null,2)],{ty
 function importData(file){if(!file)return;let r=new FileReader();r.onload=()=>{try{state.items=JSON.parse(r.result);save();toast('تم استيراد المحتوى');render()}catch{toast('ملف JSON غير صالح')}};r.readAsText(file)}
 function esc(s){return String(s??'').replace(/[&<>"']/g,m=>({'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;',"'":'&#039;'}[m]))}
 function render(){document.documentElement.dir=state.lang==='ar'?'rtl':'ltr';document.documentElement.lang=state.lang;let body=state.admin?admin():(state.page==='home'?home():(state.page==='live'&&liveConfig.enabled?live():category()));document.getElementById('app').innerHTML=header()+body+`<footer class="footer">© 2026 Play Now — منصة ترفيه رقمية حديثة</footer>${state.detail==='login'?loginModal():state.detail&&state.detail.id?detail(state.detail):''}${state.edit?editModal():''}${state.toast?`<div class="toast">${state.toast}</div>`:''}`}
-(async()=>{await PNCloud?.init?.(); if(PNCloud?.enabled){const cloudItems=await PNCloud.loadItems(); if(cloudItems?.length){state.items=cloudItems;save()}} render()})();
+(async()=>{try{await window.PNCloud.init(); if(window.PNCloud.enabled){const cloudItems=await window.PNCloud.loadItems(); if(cloudItems?.length){state.items=cloudItems;save()}}}catch(e){console.warn("Cloud initialization skipped",e)} finally {render()}})();
 </script>
 <script>if("serviceWorker" in navigator){window.addEventListener("load",()=>navigator.serviceWorker.register("./sw.js").catch(()=>{}));}</script>
 </body></html>
